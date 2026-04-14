@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monica Bonetti — Coach pour les mamans</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --creme: #ffeecf;
+    --terracotta: #cd764b;
+    --or: #c88d25;
+    --teal: #49ada4;
+    --blanc: #faf6f0;
+    --brun: #4a2e1a;
+    --brun-light: #7a5c42;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--creme);
+    color: var(--brun);
+    font-family: 'Nunito', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--blanc);
+    padding: 18px 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-mb {
+    width: 44px;
+    height: 44px;
+    background: var(--terracotta);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--creme);
+    text-decoration: none;
+  }
+
+  /* BANDEAU */
+  .bandeau {
+    background: var(--terracotta);
+    padding: 32px 5vw;
+    text-align: center;
+  }
+
+  .bandeau-text {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(17px, 2.2vw, 24px);
+    font-weight: 700;
+    color: var(--creme);
+    letter-spacing: 0.03em;
+    margin-bottom: 8px;
+  }
+
+  .bandeau-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(14px, 1.5vw, 18px);
+    color: rgba(255,238,207,0.82);
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--creme);
+    padding: 64px 5vw 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-text { animation: fadeUp 0.7s ease both; }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(21px, 2.3vw, 36px);
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--brun);
+    margin-bottom: 28px;
+  }
+
+  .hero-signature {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(17px, 1.7vw, 24px);
+    color: var(--terracotta);
+    line-height: 1.4;
+    margin-bottom: 44px;
+  }
+
+  .quiz-block {
+    border-top: 1.5px solid rgba(74,46,26,0.1);
+    padding-top: 28px;
+    text-align: center;
+  }
+
+  .quiz-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brun-light);
+    margin-bottom: 14px;
+  }
+
+  .btn-quiz {
+    display: inline-block;
+    background: var(--terracotta);
+    color: var(--creme);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.25s, transform 0.2s;
+  }
+
+  .btn-quiz:hover {
+    background: var(--brun);
+    transform: translateY(-2px);
+  }
+
+  /* HERO IMAGE */
+  .hero-image {
+    animation: fadeUp 0.7s 0.15s ease both;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-img {
+    width: 100%;
+    max-width: 520px;
+    border-radius: 24px;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+    aspect-ratio: 4/3;
+  }
+
+  /* MONICA */
+  .section-monica {
+    background: var(--blanc);
+    padding: 80px 5vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: start;
+  }
+
+  .monica-image-col { display: flex; flex-direction: column; gap: 20px; }
+
+  .monica-img-wrap {
+    border-radius: 28px;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+  }
+
+  .monica-img-inner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .monica-caption {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--brun-light);
+    line-height: 1.65;
+    padding: 0 4px;
+  }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brun-light);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 2.3vw, 34px);
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--brun);
+    margin-bottom: 28px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .monica-body p {
+    font-size: 16px;
+    color: var(--brun-light);
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+
+  .monica-body p:last-child { margin-bottom: 0; }
+
+  /* RESET */
+  .section-reset {
+    background: var(--creme);
+    padding: 48px 5vw 80px;
+    text-align: center;
+  }
+
+  .reset-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 2.6vw, 40px);
+    font-weight: 400;
+    color: var(--brun);
+    line-height: 1.3;
+    margin-bottom: 48px;
+  }
+
+  .reset-title em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .reset-card {
+    background: var(--blanc);
+    border-radius: 28px;
+    padding: 48px 40px;
+    max-width: 620px;
+    margin: 0 auto;
+    border: 1px solid rgba(74,46,26,0.07);
+  }
+
+  .reset-card-name {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brun-light);
+    margin-bottom: 16px;
+  }
+
+  .reset-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 1.8vw, 24px);
+    font-weight: 400;
+    color: var(--brun);
+    margin-bottom: 32px;
+    line-height: 1.5;
+  }
+
+  .btn-reset {
+    display: inline-block;
+    background: var(--terracotta);
+    color: var(--creme);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 13px 34px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.25s, transform 0.2s;
+  }
+
+  .btn-reset:hover {
+    background: var(--brun);
+    transform: translateY(-2px);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--terracotta);
+    color: var(--creme);
+    padding: 44px 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 32px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 15px;
+    color: rgba(255,238,207,0.85);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--creme); }
+
+  .footer-copy {
+    font-size: 13px;
+    color: rgba(255,238,207,0.5);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 40px 6vw 60px;
+      gap: 36px;
+    }
+    .hero-image { order: -1; }
+    .hero-img { max-width: 300px; margin: 0 auto; }
+    .quiz-block { text-align: left; }
+
+    .section-monica {
+      grid-template-columns: 1fr;
+      gap: 36px;
+      padding: 60px 6vw;
+    }
+    .monica-img-wrap { max-width: 300px; margin: 0 auto; }
+    .reset-card { padding: 32px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="logo-mb">MB</a>
+</nav>
+
+<!-- BANDEAU -->
+<div class="bandeau">
+  <p class="bandeau-text">Coach pour les mamans · Vevey · En ligne</p>
+  <p class="bandeau-sub">Des outils pratiques et du mindset pour des résultats qui durent.</p>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1 class="hero-title">
+      Ton cerveau tourne encore.<br>
+      Les courses, l'école, le boulot, les kids.<br><br>
+      Alors que tout ce que tu veux c'est retrouver des moments de qualité avec ton kid.
+    </h1>
+    <p class="hero-signature">Faire moins ne fait pas de toi une mauvaise mère.</p>
+    <div class="quiz-block">
+      <p class="quiz-label">C'est pour toi et c'est gratuit</p>
+      <a href="https://forms.gle/JyvfDNHLgxmHTpuh8" class="btn-quiz" target="_blank">
+        Commence par là et découvre à combien tu tournes →
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <img src="monica-orchidee.jpg" alt="Monica Bonetti" class="hero-img">
+  </div>
+</section>
+
+<!-- MONICA -->
+<section class="section-monica" id="monica">
+  <div class="monica-image-col">
+    <div class="monica-img-wrap">
+      <img src="monica-quisuisje.jpg" alt="Monica Bonetti" class="monica-img-inner">
+    </div>
+  </div>
+
+  <div class="monica-text">
+    <p class="section-label">Qui suis-je</p>
+    <h2 class="section-title">Moi c'est <em>Monica</em></h2>
+    <div class="monica-body">
+      <p>Maman de 3 kids et coach certifiée depuis 2023. On me dit douce, à l'écoute et solaire.</p>
+      <p>J'ai créé des outils simples et actionnables pour que tu repartes avec un plan clair dès le lendemain.</p>
+      <p>Je ne cherche pas à te changer, je t'aide à te retrouver.</p>
+      <p>Ici pas de méthodes magiques, mais des outils pratiques et du mindset pour des résultats qui durent.</p>
+      <p>Avec moi, tu peux tout déposer, sans jugement et sans prouver quoi que ce soit.</p>
+      <p><em>Et sinon je ris fort, je pleure facilement, j'adore les discussions profondes et les câlins. J'ai un faible pour les gens vrais et pour les mamans courageuses, surtout quand elles ne le savent pas encore.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- RESET -->
+<section class="section-reset" id="reset">
+  <h2 class="reset-title">
+    Prête à poser ta liste mentale ?<br>
+    <em>Tu es au bon endroit.</em>
+  </h2>
+  <div class="reset-card">
+    <p class="reset-card-name">Reset Charge Mentale</p>
+    <h3 class="reset-card-title">2h pour alléger ta tête et profiter enfin de ton kid, sans liste dans la tête.</h3>
+    <a href="https://monicabonetti.github.io/resetchargementale/" class="btn-reset" target="_blank">Je veux alléger ma tête →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <ul class="footer-links">
+    <li><a href="https://www.instagram.com/monica_bonetti__/" target="_blank">@monica_bonetti__</a></li>
+    <li><a href="https://monica-bonetti.systeme.io/newsletter" target="_blank">Newsletter</a></li>
+    <li><a href="mailto:info@monica-bonetti.ch">info@monica-bonetti.ch</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 Monica Bonetti · Tous droits réservés</p>
+</footer>
+
+</body>
+</html>
