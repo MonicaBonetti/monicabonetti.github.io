@@ -264,9 +264,15 @@
     margin: 0;
   }
   @media (max-width: 768px) {
-    .cta-cards-row { flex-direction: column; }
-    .cta-cards-row .cta-card { max-width: 100%; }
+  .cta-cards-row { flex-direction: column; }
+  .cta-cards-row .cta-card { 
+    max-width: 100%;
+    padding: 24px 20px 16px;
   }
+  .cta-card p { margin-bottom: 16px; }
+  .cta-card .btn { display: block; margin-bottom: 0; }
+  .cta-card .card-soon { margin-bottom: 0; }
+}
   .cta-section h2 {
     font-family: 'Playfair Display', serif;
     font-weight: 400;
